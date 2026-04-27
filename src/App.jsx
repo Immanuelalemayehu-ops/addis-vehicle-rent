@@ -109,6 +109,9 @@ function useIsMobile() {
 
 export default function App() {
   const isMobile = useIsMobile()
+  const [user, setUser] = useState(null)
+const adminEmail = "immanuelalemayehu@gmail.com"
+const isAdmin = user?.email === adminEmail
 
   const [vehicles, setVehicles] = useState([])
   const [pendingVehicles, setPendingVehicles] = useState([])
@@ -139,15 +142,25 @@ export default function App() {
   const [submitting, setSubmitting] = useState(false)
 
   useEffect(() => {
+    loadUser()
     loadVehicles()
     loadPendingVehicles()
   }, [])
+  async function loadUser() {
+  const { data, error } = await supabase.auth.getUser()
 
+  if (error) {
+    console.error(error.message)
+  } else {
+    setUser(data?.user || null)
+  }
+}
   async function loadVehicles() {
     const { data, error } = await supabase
       .from('vehicles')
       .select('*')
       .eq('approval_status', 'approved')
+      .eq('status', 'active')
       .order('created_at', { ascending: false })
 
     if (error) {
@@ -1003,7 +1016,7 @@ export default function App() {
             <a href="mailto:immanuelalemayehu@gmail.com" style={styles.emailLink}>Email</a>
           </div>
         </section>
-
+        {isAdmin && (
         <section style={styles.panel}>
           <h2
             style={{
@@ -1035,6 +1048,7 @@ export default function App() {
               </div>
             ))}
         </section>
+        )}
       </main>
 
       <VehicleDetailsModal vehicle={selectedVehicle} onClose={() => setSelectedVehicle(null)} />
