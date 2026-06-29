@@ -160,7 +160,6 @@ const isAdmin = user?.email === adminEmail
       .from('vehicles')
       .select('*')
       .eq('approval_status', 'approved')
-      .eq('status', 'active')
       .order('created_at', { ascending: false })
 
     if (error) {
