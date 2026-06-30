@@ -485,7 +485,7 @@ const isAdmin = user?.email === adminEmail
           >
             <img
               src="/premium-logo.png"
-              alt="RentaRide Addis Vehicle Rental Logo"
+              alt="Noah Addis Vehicle Rental Logo"
               style={{
                 ...styles.brandLogoImage,
                 width: isMobile ? '84px' : '112px',
@@ -499,8 +499,8 @@ const isAdmin = user?.email === adminEmail
                   textAlign: 'center',
                 }}
               >
-                <span style={styles.brandOrange}>RentaRide</span>
-                <span style={styles.brandBlue}> Addis Vehicle Rental</span>
+                <span style={styles.brandOrange}>Noah Addis</span>
+                <span style={styles.brandBlue}>  Vehicle Rental</span>
               </div>
             </div>
           </div>
@@ -973,11 +973,11 @@ const isAdmin = user?.email === adminEmail
               fontSize: isMobile ? '18px' : '22px',
             }}
           >
-            Why Choose RentaRide Addis Vehicle Rental
+            Why Choose Noah Addis Vehicle Rental
           </h2>
           <div style={styles.summaryWrap}>
             <p style={styles.summaryParagraph}>
-              RentaRide connects renters and vehicle owners directly through one simple and trusted platform.
+              Noah Addis connects renters and vehicle owners directly through one simple and trusted platform.
             </p>
             <p style={styles.summaryParagraph}>
               It supports better visibility, smoother transactions, and more value for users across Addis Ababa and Ethiopia.
